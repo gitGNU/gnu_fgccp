@@ -1,0 +1,55 @@
+""" Free GURPS Character Creation Program
+    Copyright © 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
+
+    This file is part of fgccp.
+
+    fgccp is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Fgccp is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with fgccp.  If not, see <http://www.gnu.org/licenses/>."""
+
+# Quirks
+# One per line
+# Sleep
+Likes to sleep late  ;
+Likes to wake up early ;
+Likes to sleep outside ;
+# food
+Likes fruit  ;
+Likes cooking ;
+Vegetarian ;
+Likes BBQs ;
+# Racial
+Dislikes other races ;
+# general
+Tries to be ontime ;
+Not satisfied with own appearance ;
+Flirty ;
+Preferred weapon ;
+Always wears black ;
+Always wears jeans ;
+Afraid of the opposite sex ;
+Has trouble with commitment ;
+Always shakes peoples hands ;
+Likes to stare at people ;
+Only uses Linux ;
+Likes to wistle ;
+Likes to be alone ;
+Likes to read ;
+Likes coffee ;
+Likes to read the newspaper every day ;
+Doesn't like to wear own glasses ;
+Drives fast ;
+Names all of his possesions ;
+Likes to talk in the 3rd person ;
+Always tells childhood stories ;
+Daydreamer ;
+Believes she/he's lucky ;

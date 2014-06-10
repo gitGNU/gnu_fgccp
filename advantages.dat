@@ -1,0 +1,45 @@
+""" Free GURPS Character Creation Program
+    Copyright © 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
+
+    This file is part of fgccp.
+
+    fgccp is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Fgccp is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with fgccp.  If not, see <http://www.gnu.org/licenses/>."""
+
+# Advantages
+# adv_id: unique advantage id
+# name: name of the advantage, human readable
+# initial points: point cost for initial levels, ie for Magical ability "15/10/10"
+# points/level: well, points per level
+# max levels: maximum number of levels possible
+# bonus: bonuses
+# ref: reference
+# adv_id ; name ; initial points ; points/level ; max levels ; bonus ; ref
+360_degree_vision      ; 360-Degree Vision             ; 25 ;    ; 1  ;                                       ; C1-68,SU35,U19
+3d_spacial_sense       ; 3D Spatial Sense              ; 10 ;    ; 1  ;                                       ; C1-31,S33
+absolute_direction     ; Absolute Direction            ; 5  ;    ; 1  ;                                       ; B19
+absolute_timing        ; Absolute Timing               ; 5  ;    ; 1  ;                                       ; B19
+#absorbtion             ; Absorbtion                    ;    ;    ;    ;                                       ; C1-49
+academic_status        ; Academic Status               ; 5  ; 5  ; 5  ;                                       ; IOU18
+acceleration_tolerance ; Acceleration Tolerance        ; 10 ;    ; 1  ;                                       ; C1-19
+acute_faz              ; Acute Faz                     ; 2  ; 2  ; 5  ;                                       ; C1-55
+acute_hearing          ; Acute Hearing                 ; 2  ; 2  ; 5  ; hearing_bonus/+/1                     ; B19
+acute_taste_smell      ; Acute Taste and Smell         ; 2  ; 2  ; 5  ; taste_smell_bonus/+/1                 ; B19
+acute_vision           ; Acute Vision                  ; 2  ; 2  ; 5  ; vision_bonus/+/1                      ; B19
+administrative_rank    ; Administrative Rank           ; 5  ; 5  ; 5  ;                                       ; C1-19
+alcohol_tolerance      ; Alcohol Tolerance             ; 5  ;    ; 1  ;                                       ; C1-19
+alertness              ; Alertness                     ; 5  ; 5  ; 5  ;                                       ; B19
+#
+math_ability           ; Mathematical Ability          ; 10 ;    ; 1  ; math_bonus/+/3                        ; B22
+#math_ability_tl6       ; Mathematical Ability/TL6      ; 10 ;    ; 1  ; math_bonus/+/3,eng_bonus/+/2          ; B22
+magical_aptitude       ; Magical Aptitude              ; 15 ; 10 ; 3  ; magic_bonus/+/1                       ; B21

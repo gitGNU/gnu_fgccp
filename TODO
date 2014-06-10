@@ -1,0 +1,130 @@
+""" Free GURPS Character Creation Program
+    Copyright © 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
+
+    This file is part of fgccp.
+
+    fgccp is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Fgccp is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with fgccp.  If not, see <http://www.gnu.org/licenses/>."""
+
+--- BUGS ---
+
+- Skill window doesn't redraw ?
+- Can't read quirks with no newline if string.split is not used. How come?
+  Doesn't string.strip() work correctly?
+
+FIXED - Menu dissapears, pygtk bug?
+        It turns out item_factory has to be referenced so it doesn't get
+        freed.
+
+--- GCCP Todo ---
+
+ * Split the program from the data files
+ * Create .deb package
+ * Create .rpm package
+
+ * Print latex character
+ * Print ps/pdf character
+ * Print tables
+
+ * Add default skills
+ * Allow description
+ * Allow skill groups
+ * Right-click menu on skills (double click?)
+     quickpick points
+     remove
+     change type
+     display info (see bellow)
+ * Display info on skill (separate window)
+ * Sort by category / sort by name / sort by diff?
+ * Display defaults on skill list (?)
+ * Custom skills
+ * Save custom skills / skill editor (?)
+ * Add custom modifiers/bonuses to skills
+ * Add skills with double click
+ 
+ * Allow description on advantages
+ * Display info on Advantage
+ * Right click menus on advantages (double click?)
+        change type
+	change level
+	adv info
+ * Set Level (right click?)
+ * Separate Advantages/Disadvantages (?)
+ * Custom Advantages 
+ * Save custom advantages / advantage editor (?)
+ * Add advantages with double click
+
+ * Custom quirks
+ * Save custom quirk / quirk editor (?)
+
+ * Describe Data Structures
+
+ * Config file
+ * Load db's from config file
+
+ * Load Game files (skills, adv, etc)
+
+ * Allow Races
+ * Race Creator (?)
+ * Save Races
+
+ * Make spells work
+
+ * Allow adding a picture
+ 
+ * Apply modifiers to will/move/hearing,etc.
+ * Calculate Weight/Height
+ * Calculate Defenses (PD/DR)
+ * Allow for character name
+ * Allow for player info
+ * Allow for campaign info
+ * Allow for Description 
+ * Description wizard / questionaire
+ * Keep track of unused points / totals
+
+ * Write a function that applies modifiers to damage.
+ * Calculate punch/bite/kick correctly
+ * Reanable other damages (punch, kick, bite)
+ 
+ * Define versions in input files
+ * Define versions in save-char files
+ * Require certain file versions for character loads
+
+ * Random attr
+ * Random skills
+ * Random adv/dis/quirk
+
+ * Incorporate TL
+
+ * Equipment (Do I really want this?)
+
+
+
+--- DONE ---
+ * Delete skills
+ * Delete advantages
+ * Make Modifiers work !!! IMPORTANT 
+ * Restructure modifiers
+ * Skill types
+ * Print text character
+ * Save Characters
+ * Load Characters
+ * Calculate Move
+ * Calculate Will
+ * Calculate Fatigue
+ * Calculate Damage (thrust, impale)
+ * Add point summary to print text character
+ * Add Quirks
+ * Quirks Window
+ * Remove Quirks
+ * Input correct thurst/swing tables

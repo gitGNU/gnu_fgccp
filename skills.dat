@@ -1,0 +1,71 @@
+""" Free GURPS Character Creation Program
+    Copyright © 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
+
+    This file is part of fgccp.
+
+    fgccp is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Fgccp is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with fgccp.  If not, see <http://www.gnu.org/licenses/>."""
+
+# GURPS skill file
+# Skill-id ; Name ; Difficulty ; Attribute ; Default ; Modifier ; Bonus ; Prereq ; Flags
+#
+# Skill-id: unique identifier, one word
+# Name: human readable name
+# Difficulty: M/E M/A M/H M/VH P/E P/A P/H
+# Attribute: Base attribute, ST DX IQ HT
+# Default: default of skill, skill-id/+-mod attr/+-mod
+# Modifier: which modifiers apply to this skill (comma separated)
+# Bonus: what modifier bonus does this skill offer "mod_name/type/#" (comma separated)
+#   type can be on of:
+#   *,/,+,-: normal math operators by #
+#   sdiv: skill divided by #
+# Prereq: prerequisites, can be one of:
+#   skill/skill-id/#  (skill-id at level #)
+#   attr/name/#       (attribute name at #)
+#   adv/adv-id/#      (adv-id at level #) 
+# Flags: (comma separated)
+#   type  (this skill requires a type)
+#   TL    (this skill is TL dependant)
+# Ref: Reference (book, page, etc)
+#
+# Skill-id ; Name ; Difficulty ; Attribute ; Default ; Modifier ; Bonus ; Prereq ; Flags ; Ref
+abacus            ; Abacus            ; M/A  ; IQ ;                               ;              ; ; ;      ; C1-153
+accounting        ; Accounting        ; M/H  ; IQ ; IQ/-10                        ; math_bonus   ; ; ;      ; B58
+acrobatics        ; Acrobatics        ; P/H  ; DX ; DX/-6                         ;              ; ; ;      ; B48
+acting            ; Acting            ; M/A  ; IQ ; IQ/-5,bard/-5,performance/-2  ;              ; ; ;      ; B62
+administration    ; Administration    ; M/A  ; IQ ; IQ/-6,merchant/-3             ;              ; ; ;      ; B62
+agronomy          ; Agronomy          ; M/A  ; IQ ; IQ/-5                         ;              ; ; ; TL   ; B59
+airshipman        ; Airshipman        ; M/H  ; IQ ; IQ/-6                         ;              ; ; ; TL   ; C1-161
+alchemy           ; Alchemy           ; M/VH ; IQ ;                               ;              ; ; ; TL   ; B59
+animal_guise      ; Anumal Guise      ; M/A  ; IQ ; IQ/-5                         ;              ; ; ;      ; C1-152
+animal_handling   ; Animal Handling   ; M/H  ; IQ ; IQ/-6                         ; animal_bonus ; ; ;      ; B46
+anthropology      ; Anthropology      ; M/H  ; IQ ; IQ/-6                         ;              ; ; ;      ; B59 
+appreciate_beauty ; Appreciate Beauty ; M/VH ; IQ ; IQ/-5,savoire-faire/-5        ;              ; ; ;      ; C1-129,VTM65
+archaeology       ; Archaelogy        ; M/H  ; IQ ; IQ/-6                         ;              ; ; ;      ; B59
+architecture      ; Architecture      ; M/A  ; IQ ; IQ/-5                         ;              ; ; ; TL   ; B59
+# Other area knowledge from Compendium ?
+area_knowledge    ; Area Knowledge    ; M/E  ; IQ ; IQ/-4                         ;              ; ; ; type ; B62
+armoury           ; Armoury           ; M/A  ; IQ ; IQ/-5                         ;              ; ; ; TL   ; B53
+ai          ; Artificial Intelligence ; M/H  ; IQ ; teaching/-5,computer_programming/-3 ;        ; ; ; TL   ; C1-155
+artist            ; Artist            ; M/H  ; IQ ; IQ/-6                         ;              ; ; ;      ; B47
+astrogation       ; Astrogation       ; M/A  ; IQ ; navigation/-5,astronomy/-4,mathematics/-4  ; ; ; ; type ; B59
+astrology         ; Astrology         ; M/H  ; IQ ; IQ/-6                         ;              ; ; ;      ; AN56
+astronomy         ; Astronomy         ; M/H  ; IQ ; IQ/-6                         ;              ; ; ; TL   ; B60
+augury            ; Augury            ; M/VH ; IQ ; theology/-4,occultism/-3      ;              ; ; ; type ; C1-137
+autohypnosis      ; Autohypnosis      ; M/H  ; IQ ;                               ;              ; ; ;      ; C1-137
+aviation          ; Aviation          ; M/A  ; IQ ; IQ/-5                         ;              ; ; ; TL   ; C1-153
+axe-mace          ; Axe/Mace          ; P/A  ; DX ; DX/-5                         ;              ; ; ;      ; B49
+axethrowing       ; Axe Throwing      ; P/E  ; DX ; DX/-4                         ;              ; ; ;      ; B49
+ballgame          ; Ball Game         ; P/A  ; DX ; DX/-5,ST/-5                   ;              ; ; ;      ; AZ37
+#
+bard              ; Bard              ; M/A  ; IQ ; IQ/-5,performance/-2          ;              ; ; ;      ; B47  
