@@ -1,5 +1,7 @@
+#!/usr/bin/python
+
 """ Free GURPS Character Creation Program
-    Copyright © 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
+    Copyright (C) 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
 
     This file is part of fgccp.
 
@@ -16,26 +18,25 @@
     You should have received a copy of the GNU General Public License
     along with fgccp.  If not, see <http://www.gnu.org/licenses/>."""
 
-#!/usr/bin/python
-'''GCCP
 
-Gurps Character Creation Program'''
+"""FGCCP
+
+Free GURPS Character Creation Program"""
 
 from character import *
 from skills import *
 from advantages import *
 import pygtk
-pygtk.require('2.0')
+#pygtk.require('2.0')
 import gtk 
-from gtk import TRUE, FALSE
 import gobject
 import pickle
 
-WINDOW_NAME = 'GCCP: Gurps Character Creation Program'
+WINDOW_NAME = 'FGCCP: Free GURPS Character Creation Program'
 
 ALIGN_CENTER = 0.5
 
-GCCP_VERSION = '0.9 (alpha)'
+FGCCP_VERSION = '0.1 (alpha)'
 
 
 #########################################################################
@@ -60,8 +61,8 @@ class Quirk_Window:
     self.window.add(vbox)
     
     self.quirk_table = gtk.TreeView(self.quirk_list_model())
-    self.quirk_table.set_rules_hint(gtk.TRUE)
-    self.quirk_table.set_headers_visible(gtk.TRUE)
+    self.quirk_table.set_rules_hint(True)
+    self.quirk_table.set_headers_visible(True)
     selection = self.quirk_table.get_selection()
     selection.set_mode(gtk.SELECTION_SINGLE)
     self.add_columns(self.quirk_table)
@@ -81,7 +82,7 @@ class Quirk_Window:
     button.connect('clicked', self.cancel)
     hbox.pack_start(button)
 
-    vbox.pack_start(hbox, expand=gtk.FALSE) 
+    vbox.pack_start(hbox, expand=False) 
 
   def show(self, arg):
     self.window.show_all()
@@ -106,7 +107,7 @@ class Quirk_Window:
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Quirk', renderer,text=self.COLUMN_QUIRK)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_min_width(250)
     quirk_table.append_column(column)
 
@@ -139,8 +140,8 @@ class Skill_Window:
     self.window.add(vbox)
     
     self.skill_table = gtk.TreeView(self.skill_list_model())
-    self.skill_table.set_rules_hint(gtk.TRUE)
-    self.skill_table.set_headers_visible(gtk.TRUE)
+    self.skill_table.set_rules_hint(True)
+    self.skill_table.set_headers_visible(True)
     selection = self.skill_table.get_selection()
     selection.set_mode(gtk.SELECTION_SINGLE)
     self.add_columns(self.skill_table)
@@ -160,7 +161,7 @@ class Skill_Window:
     button.connect('clicked', self.cancel)
     hbox.pack_start(button)
 
-    vbox.pack_start(hbox, expand=gtk.FALSE) 
+    vbox.pack_start(hbox, expand=False) 
 
   def add_skill(self, arg):
     selection = self.skill_table.get_selection()
@@ -200,18 +201,18 @@ class Skill_Window:
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Skill', renderer,text=self.COLUMN_NAME)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_min_width(250)
     skill_table.append_column(column)
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Diff', renderer, text=self.COLUMN_DIFF)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     skill_table.append_column(column)
 
     #renderer = gtk.CellRendererText()
     #column = gtk.TreeViewColumn('Default', renderer,text=COLUMN_LEVEL)
-    #column.set_resizable(gtk.TRUE)
+    #column.set_resizable(True)
     #skill_table.append_column(column)
 
 #########################################################################
@@ -234,8 +235,8 @@ class Advantage_Window:
     self.window.add(vbox)
     
     self.adv_table = gtk.TreeView(self.adv_list_model())
-    self.adv_table.set_rules_hint(gtk.TRUE)
-    self.adv_table.set_headers_visible(gtk.TRUE)
+    self.adv_table.set_rules_hint(True)
+    self.adv_table.set_headers_visible(True)
     selection = self.adv_table.get_selection()
     selection.set_mode(gtk.SELECTION_SINGLE)
     self.add_columns(self.adv_table)
@@ -255,7 +256,7 @@ class Advantage_Window:
     button.connect('clicked', self.cancel)
     hbox.pack_start(button)
 
-    vbox.pack_start(hbox, expand=gtk.FALSE) 
+    vbox.pack_start(hbox, expand=False) 
   
   def cancel(self, args):
     self.window.hide()
@@ -293,13 +294,13 @@ class Advantage_Window:
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Points', renderer,text=self.COLUMN_POINTS)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     adv_table.append_column(column)
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Advantage/Disadvantage', 
                                 renderer, text=self.COLUMN_NAME)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_min_width(250)
     adv_table.append_column(column)
 
@@ -308,7 +309,7 @@ class Advantage_Window:
 #########################################################################
 #
 
-class Gccp_App:
+class Fgccp_App:
   def __init__( self, *args ):
     self.SCOLUMN_NAME     = 0
     self.SCOLUMN_DIFF     = 1
@@ -356,7 +357,7 @@ class Gccp_App:
 
     # Start with a menubar
     self.menubar = self.create_menubar()
-    vbox.pack_start(self.menubar, expand=gtk.FALSE)
+    vbox.pack_start(self.menubar, expand=False)
 
     # Then a notebook
     #self.notebook = self.create_notebook()
@@ -367,7 +368,7 @@ class Gccp_App:
 
     # Then the statusbar
     self.statusbar = self.create_statusbar()
-    vbox.pack_start(self.statusbar, expand=gtk.FALSE)
+    vbox.pack_start(self.statusbar, expand=False)
 
     # Clear the character
     self.redraw_character()
@@ -427,29 +428,29 @@ class Gccp_App:
     label = gtk.Label('Character Name:')
     self.cnamelabel = gtk.Label('')
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.cnamelabel, gtk.FALSE, gtk.FALSE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.cnamelabel, False, False)
     chartable.attach(hbox,0,1,0,1)
 
     label = gtk.Label('Player Name:')
     self.pnamelabel = gtk.Label('')
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.pnamelabel, gtk.FALSE, gtk.FALSE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.pnamelabel, False, False)
     chartable.attach(hbox,0,1,1,2)
 
     label = gtk.Label('Points:')
     self.tpointslabel = gtk.Label('0')
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.tpointslabel, gtk.FALSE, gtk.FALSE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.tpointslabel, False, False)
     chartable.attach(hbox,1,2,0,1)
 
     label = gtk.Label('Unspent:')
     self.upointslabel = gtk.Label('0')
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.upointslabel, gtk.FALSE, gtk.FALSE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.upointslabel, False, False)
     chartable.attach(hbox,1,2,1,2)
 
 
@@ -505,9 +506,9 @@ class Gccp_App:
     hbox = gtk.HBox()
     frame.add(hbox)
     label = gtk.Label('Move:')
-    hbox.pack_start(label,gtk.FALSE, gtk.FALSE,5)
+    hbox.pack_start(label,False, False,5)
     self.movelabel = gtk.Label('5')
-    hbox.pack_start(self.movelabel,gtk.FALSE, gtk.FALSE)
+    hbox.pack_start(self.movelabel,False, False)
     
     frame = gtk.Frame('Stats')
     table.attach(frame,1,2,1,3)
@@ -517,81 +518,81 @@ class Gccp_App:
     hbox = gtk.HBox()
     label = gtk.Label('Fatigue:')
     self.fatiguelabel = gtk.Label('10')
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.fatiguelabel,gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.fatiguelabel,False, False)
+    vbox.pack_start(hbox, True, True)
 
     hbox = gtk.HBox()
     label = gtk.Label('Will:')
     self.willlabel = gtk.Label('10')
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.willlabel,gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.willlabel,False, False)
+    vbox.pack_start(hbox, True, True)
 
     hbox = gtk.HBox()
     label = gtk.Label('Vision:')
     self.visionlabel = gtk.Label('10')
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.visionlabel,gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.visionlabel,False, False)
+    vbox.pack_start(hbox, True, True)
 
     hbox = gtk.HBox()
     label = gtk.Label('Hearing:')
     self.hearinglabel = gtk.Label('10')
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.hearinglabel,gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.hearinglabel,False, False)
+    vbox.pack_start(hbox, True, True)
 
     hbox = gtk.HBox()
     label = gtk.Label('Taste/Smell:')
     self.tastesmelllabel = gtk.Label('10')
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.tastesmelllabel,gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.tastesmelllabel,False, False)
+    vbox.pack_start(hbox, True, True)
 
     hbox = gtk.HBox()
     label = gtk.Label('Hits:')
     self.hitslabel = gtk.Label('10')
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.hitslabel,gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.hitslabel,False, False)
+    vbox.pack_start(hbox, True, True)
 
     hbox = gtk.HBox()
     label = gtk.Label('Thurst:')
     self.thrustlabel = gtk.Label('1d-1')
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.thrustlabel,gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.thrustlabel,False, False)
+    vbox.pack_start(hbox, True, True)
 
     hbox = gtk.HBox()
     label = gtk.Label('Swing:')
     self.swinglabel = gtk.Label('1d-2')
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.swinglabel,gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.swinglabel,False, False)
+    vbox.pack_start(hbox, True, True)
 
     # This hasn't been correctly implemented yet
     if 0:
       hbox = gtk.HBox()
       label = gtk.Label('Punch:')
       self.punchlabel = gtk.Label('1d-1')
-      hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-      hbox.pack_start(self.punchlabel,gtk.FALSE, gtk.FALSE)
-      vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+      hbox.pack_start(label, False, False,5)
+      hbox.pack_start(self.punchlabel,False, False)
+      vbox.pack_start(hbox, True, True)
 
       hbox = gtk.HBox()
       label = gtk.Label('Kick:')
       self.kicklabel = gtk.Label('1d-2')
-      hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-      hbox.pack_start(self.kicklabel,gtk.FALSE, gtk.FALSE)
-      vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+      hbox.pack_start(label, False, False,5)
+      hbox.pack_start(self.kicklabel,False, False)
+      vbox.pack_start(hbox, True, True)
 
       hbox = gtk.HBox()
       label = gtk.Label('Bite:')
       self.bitelabel = gtk.Label('1d-2')
-      hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-      hbox.pack_start(self.bitelabel,gtk.FALSE, gtk.FALSE)
-      vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+      hbox.pack_start(label, False, False,5)
+      hbox.pack_start(self.bitelabel,False, False)
+      vbox.pack_start(hbox, True, True)
 
     return table
 
@@ -603,54 +604,54 @@ class Gccp_App:
     self.totals_stats_label = gtk.Label('0')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.totals_stats_label, gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.totals_stats_label, False, False)
+    vbox.pack_start(hbox, True, True)
     
     label = gtk.Label('Skills:')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     self.totals_skills_label = gtk.Label('0')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.totals_skills_label, gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.totals_skills_label, False, False)
+    vbox.pack_start(hbox, True, True)
 
     label = gtk.Label('Adv:')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     self.totals_adv_label = gtk.Label('0')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.totals_adv_label, gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.totals_adv_label, False, False)
+    vbox.pack_start(hbox, True, True)
 
     label = gtk.Label('Dis:')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     self.totals_dis_label = gtk.Label('0')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.totals_dis_label, gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.totals_dis_label, False, False)
+    vbox.pack_start(hbox, True, True)
     
     label = gtk.Label('Quirks:')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     self.totals_quirks_label = gtk.Label('0')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.totals_quirks_label, gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.totals_quirks_label, False, False)
+    vbox.pack_start(hbox, True, True)
 
     label = gtk.Label('Total:')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     self.totals_total_label = gtk.Label('0')
     label.set_justify(gtk.JUSTIFY_RIGHT)
     hbox = gtk.HBox()
-    hbox.pack_start(label, gtk.FALSE, gtk.FALSE,5)
-    hbox.pack_start(self.totals_total_label, gtk.FALSE, gtk.FALSE)
-    vbox.pack_start(hbox, gtk.TRUE, gtk.TRUE)
+    hbox.pack_start(label, False, False,5)
+    hbox.pack_start(self.totals_total_label, False, False)
+    vbox.pack_start(hbox, True, True)
 
     frame = gtk.Frame('Overview')
     frame.add(vbox)
@@ -662,8 +663,8 @@ class Gccp_App:
     vbox = gtk.VBox()
     
     self.skill_table = gtk.TreeView(self.skill_model())
-    self.skill_table.set_rules_hint(gtk.TRUE)
-    self.skill_table.set_headers_visible(gtk.TRUE)
+    self.skill_table.set_rules_hint(True)
+    self.skill_table.set_headers_visible(True)
     selection = self.skill_table.get_selection()
     selection.set_mode(gtk.SELECTION_SINGLE)
     self.add_skill_columns(self.skill_table)
@@ -685,7 +686,7 @@ class Gccp_App:
     button.connect('clicked', self.remove_skill)
     hbox.pack_start(button, padding=4)
 
-    vbox.pack_start(hbox, gtk.FALSE, gtk.FALSE, 4) 
+    vbox.pack_start(hbox, False, False, 4) 
     
     frame = gtk.Frame('Skills')
     frame.add(vbox)
@@ -731,8 +732,8 @@ class Gccp_App:
     vbox = gtk.VBox()
 
     self.advantage_table_tv = gtk.TreeView(self.adv_model())
-    self.advantage_table_tv.set_rules_hint(gtk.TRUE)
-    self.advantage_table_tv.set_headers_visible(gtk.TRUE)
+    self.advantage_table_tv.set_rules_hint(True)
+    self.advantage_table_tv.set_headers_visible(True)
     selection = self.advantage_table_tv.get_selection()
     selection.set_mode(gtk.SELECTION_SINGLE)
     self.add_adv_columns(self.advantage_table_tv)
@@ -740,7 +741,7 @@ class Gccp_App:
     sw = gtk.ScrolledWindow()
     sw.add(self.advantage_table_tv)
     sw.set_border_width(4)
-    vbox.pack_start(sw, gtk.TRUE, gtk.TRUE, 4)
+    vbox.pack_start(sw, True, True, 4)
    
     hbox = gtk.HBox(spacing=2)
     button = gtk.Button('Add Adv/Dis')
@@ -755,7 +756,7 @@ class Gccp_App:
     hbox.pack_start(button, padding=4)
     
 
-    vbox.pack_start(hbox, gtk.FALSE, gtk.FALSE, 4) 
+    vbox.pack_start(hbox, False, False, 4) 
    
     frame = gtk.Frame('Advantage/Disadvantage/Quirks')
     frame.add(vbox)
@@ -778,14 +779,14 @@ class Gccp_App:
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Points', renderer,text=self.ACOLUMN_POINTS)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_alignment(ALIGN_CENTER)
     adv_tv.append_column(column)
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Advantage/Disadvantage/Quirk', 
                                 renderer, text=self.ACOLUMN_NAME)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_min_width(250)
     column.set_alignment(ALIGN_CENTER)
     adv_tv.append_column(column)
@@ -794,7 +795,7 @@ class Gccp_App:
     renderer.connect('edited', self.change_adv_lvl, model)
     column = gtk.TreeViewColumn('Lvl', renderer, text=self.ACOLUMN_LVL, 
                                 editable=self.ACOLUMN_EDITABLE)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_alignment(ALIGN_CENTER)
     adv_tv.append_column(column)
 
@@ -803,13 +804,13 @@ class Gccp_App:
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Skill', renderer,text=self.SCOLUMN_NAME)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_min_width(250)
     skill_table.append_column(column)
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Diff', renderer, text=self.SCOLUMN_DIFF)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_alignment(ALIGN_CENTER)
     skill_table.append_column(column)
 
@@ -817,13 +818,13 @@ class Gccp_App:
     renderer.connect('edited', self.change_skill_points, model)
     column = gtk.TreeViewColumn('Pts', renderer, text=self.SCOLUMN_POINTS,
                                 editable=self.SCOLUMN_EDITABLE)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_alignment(ALIGN_CENTER)
     skill_table.append_column(column)
 
     renderer = gtk.CellRendererText()
     column = gtk.TreeViewColumn('Level', renderer,text=self.SCOLUMN_LEVEL)
-    column.set_resizable(gtk.TRUE)
+    column.set_resizable(True)
     column.set_alignment(ALIGN_CENTER)
     skill_table.append_column(column)
 
@@ -847,7 +848,7 @@ class Gccp_App:
     dialog = gtk.Dialog("Enter Character info", self.window, 0 ,
                         (gtk.STOCK_OK, gtk.RESPONSE_OK,
                          gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
-    hbox = gtk.HBox(gtk.FALSE)
+    hbox = gtk.HBox(False)
     hbox.set_border_width(8)
     label = gtk.Label('Character Name:')
     hbox.pack_start(label)
@@ -855,7 +856,7 @@ class Gccp_App:
     hbox.pack_start(char_name_entry)
     dialog.vbox.pack_start(hbox)
 
-    hbox = gtk.HBox(gtk.FALSE)
+    hbox = gtk.HBox(False)
     hbox.set_border_width(8)
     label = gtk.Label('Player Name:')
     hbox.pack_start(label)
@@ -1036,7 +1037,7 @@ class Gccp_App:
     dialog = gtk.Dialog("Enter Type", self.window, 0 ,
                         (gtk.STOCK_OK, gtk.RESPONSE_OK,
                          gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
-    hbox = gtk.HBox(gtk.FALSE)
+    hbox = gtk.HBox(False)
     hbox.set_border_width(8)
     dialog.vbox.pack_start(hbox)
 
@@ -1105,7 +1106,7 @@ class Gccp_App:
              self.ACOLUMN_NAME,     "Advantages",
              self.ACOLUMN_LVL,      "",
              self.ACOLUMN_ID,       "",
-             self.ACOLUMN_EDITABLE, FALSE)
+             self.ACOLUMN_EDITABLE, False)
     for a in self.char.sorted_advantage_keys():
       adv  = self.advantage_db.db[a]
       cadv = self.char.d.advantages[a]
@@ -1122,7 +1123,7 @@ class Gccp_App:
              self.ACOLUMN_NAME,     "Quirks",
              self.ACOLUMN_LVL,      "",
              self.ACOLUMN_ID,       "",
-             self.ACOLUMN_EDITABLE, FALSE)
+             self.ACOLUMN_EDITABLE, False)
     for q in self.char.sorted_quirk_keys():
       iter = model.insert_before(parent_iter,None)
       model.set(iter,
@@ -1197,5 +1198,5 @@ class Gccp_App:
 
 
 if __name__ == '__main__':
-  gccp_app = Gccp_App()
-  gccp_app.run()
+  fgccp_App = Fgccp_App()
+  fgccp_App.run()

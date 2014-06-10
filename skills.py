@@ -1,5 +1,7 @@
+#!/usr/bin/python
+
 """ Free GURPS Character Creation Program
-    Copyright © 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
+    Copyright (C) 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
 
     This file is part of fgccp.
 
@@ -15,8 +17,6 @@
 
     You should have received a copy of the GNU General Public License
     along with fgccp.  If not, see <http://www.gnu.org/licenses/>."""
-
-#!/usr/bin/python
 
 import string
  

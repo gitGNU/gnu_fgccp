@@ -1,21 +1,23 @@
-""" Free GURPS Character Creation Program
-    Copyright © 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
-
-    This file is part of fgccp.
-
-    fgccp is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    Fgccp is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with fgccp.  If not, see <http://www.gnu.org/licenses/>."""
-
+#   Free GURPS Character Creation Program
+#   Copyright (C) 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
+#
+#   This file is part of fgccp.
+#
+#   fgccp is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   Fgccp is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with fgccp.  If not, see <http://www.gnu.org/licenses/>.
+#
+########################################################################
+#
 # Advantages
 # adv_id: unique advantage id
 # name: name of the advantage, human readable
@@ -29,7 +31,7 @@
 3d_spacial_sense       ; 3D Spatial Sense              ; 10 ;    ; 1  ;                                       ; C1-31,S33
 absolute_direction     ; Absolute Direction            ; 5  ;    ; 1  ;                                       ; B19
 absolute_timing        ; Absolute Timing               ; 5  ;    ; 1  ;                                       ; B19
-#absorbtion             ; Absorbtion                    ;    ;    ;    ;                                       ; C1-49
+#absorbtion            ; Absorbtion                    ;    ;    ;    ;                                       ; C1-49
 academic_status        ; Academic Status               ; 5  ; 5  ; 5  ;                                       ; IOU18
 acceleration_tolerance ; Acceleration Tolerance        ; 10 ;    ; 1  ;                                       ; C1-19
 acute_faz              ; Acute Faz                     ; 2  ; 2  ; 5  ;                                       ; C1-55

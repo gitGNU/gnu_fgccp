@@ -1,5 +1,7 @@
+#!/usr/bin/python
+
 """ Free GURPS Character Creation Program
-    Copyright © 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
+    Copyright (C) 2014  Mateus Rodrigues <mprodrigues@openmailbox.org>
 
     This file is part of fgccp.
 
@@ -16,7 +18,6 @@
     You should have received a copy of the GNU General Public License
     along with fgccp.  If not, see <http://www.gnu.org/licenses/>."""
 
-#!/usr/bin/python
 '''This is the python classes for character definition
 '''
 
@@ -25,116 +26,94 @@ from advantages import *
 from skills import *
 
 class Attribute:
-  def __init__(self, val):
-    self.MAX=25
-    self.MIN=1
-    self.value=10
-    self.points=0
-    self.point_table = [ -100,   #  0  <- Not Valid 
-                          -80,   #  1
-                          -70,   #  2
-                          -60,   #  3
-                          -50,   #  4
-                          -40,   #  5
-                          -30,   #  6
-                          -20,   #  7
-                          -15,   #  8
-                          -10,   #  9
-                            0,   # 10
-                           10,   # 11
-                           20,   # 12
-                           30,   # 13
-                           45,   # 14
-                           60,   # 15
-                           80,   # 16
-                          100,   # 17
-                          125,   # 18
-                          150,   # 19
-                          175,   # 20
-                          200,   # 21
-                          225,   # 22
-                          250,   # 23
-                          275,   # 24
-                          300]   # 25
-    self.set_value(val)
-  def set_value(self, value):
-    if((value < self.MIN) | (value > self.MAX)):
-      return -1
-    self.value  = value
-    self.points = self.point_table[self.value]
+    def __init__(self, val, boolean): #True for st/ht and False for dx/iq
+        self.MIN=1
+        self.value=10
+        self.points=0
+        if boolean == True:  
+            self.attribute_cost = (val - 10) * 10
+        else:
+            self.attribute_cost = (val - 10) * 20
+        self.set_value(val)
+        
+    def set_value(self, value):
+        if value < self.MIN:
+            return -1
+        self.value  = value
+        self.points = self.attribute_cost
     
 class Character_data:
-  def __init__(self):
-    self.name = ''
-    self.player = ''
+    def __init__(self):
+        self.name = ''
+        self.player = ''
 
-    self.skills={}
-    self.advantages={}
-    self.modifiers={}
+        self.skills={}
+        self.advantages={}
+        self.modifiers={}
 
-    self.quirks={}
+        self.quirks={}
 
-    self.thrust = [       '0',   #  0  <- Not Valid 
-                          '0',   #  1
-                          '0',   #  2
-                          '0',   #  3
-                          '0',   #  4
-                       '1d-5',   #  5
-                       '1d-4',   #  6
-                       '1d-3',   #  7
-                       '1d-3',   #  8
-                       '1d-2',   #  9
-                       '1d-2',   # 10
-                       '1d-1',   # 11
-                       '1d-1',   # 12
-                         '1d',   # 13
-                         '1d',   # 14
-                       '1d+1',   # 15
-                       '1d+1',   # 16
-                       '1d+2',   # 17
-                       '1d+2',   # 18
-                       '2d-1',   # 19
-                       '2d-1',   # 20
-                         '2d',   # 21
-                         '2d',   # 22
-                       '2d+1',   # 23
-                       '2d+1',   # 24
-                       '2d+2']   # 25
+        self.thrust = [       '0',   #  0  <- Not Valid 
+                              '0',   #  1
+                              '0',   #  2
+                              '0',   #  3
+                              '0',   #  4
+                           '1d-5',   #  5
+                           '1d-4',   #  6
+                           '1d-3',   #  7
+                           '1d-3',   #  8
+                           '1d-2',   #  9
+                           '1d-2',   # 10
+                           '1d-1',   # 11
+                           '1d-1',   # 12
+                             '1d',   # 13
+                             '1d',   # 14
+                           '1d+1',   # 15
+                           '1d+1',   # 16
+                           '1d+2',   # 17
+                           '1d+2',   # 18
+                           '2d-1',   # 19
+                           '2d-1',   # 20
+                             '2d',   # 21
+                             '2d',   # 22
+                           '2d+1',   # 23
+                           '2d+1',   # 24
+                           '2d+2']   # 25
 
-    self.swing =  [       '0',   #  0  <- Not Valid 
-                          '0',   #  1
-                          '0',   #  2
-                          '0',   #  3
-                          '0',   #  4
-                       '1d-5',   #  5
-                       '1d-4',   #  6
-                       '1d-3',   #  7
-                       '1d-2',   #  8
-                       '1d-1',   #  9
-                         '1d',   # 10
-                       '1d+1',   # 11
-                       '1d+2',   # 12
-                       '2d-1',   # 13
-                         '2d',   # 14
-                       '2d+1',   # 15
-                       '2d+2',   # 16
-                       '3d-1',   # 17
-                         '3d',   # 18
-                       '3d+1',   # 19
-                       '3d+2',   # 20
-                       '4d-1',   # 21
-                         '4d',   # 22
-                       '4d+1',   # 23
-                       '4d+2',   # 24
-                       '5d-1']   # 25 
+        self.swing =  [       '0',   #  0  <- Not Valid 
+                              '0',   #  1
+                              '0',   #  2
+                              '0',   #  3
+                              '0',   #  4
+                           '1d-5',   #  5
+                           '1d-4',   #  6
+                           '1d-3',   #  7
+                           '1d-2',   #  8
+                           '1d-1',   #  9
+                             '1d',   # 10
+                           '1d+1',   # 11
+                           '1d+2',   # 12
+                           '2d-1',   # 13
+                             '2d',   # 14
+                           '2d+1',   # 15
+                           '2d+2',   # 16
+                           '3d-1',   # 17
+                             '3d',   # 18
+                           '3d+1',   # 19
+                           '3d+2',   # 20
+                           '4d-1',   # 21
+                             '4d',   # 22
+                           '4d+1',   # 23
+                           '4d+2',   # 24
+                           '5d-1']   # 25 
  
 
 class Character:
   def __init__(self, *args):
-    self.ST = Attribute(10)
-    self.DX = Attribute(10)
-    self.IQ = Attribute(10)
-    self.HT = Attribute(10)
+    self.ST = Attribute(10, True)
+    self.DX = Attribute(10, False)
+    self.IQ = Attribute(10, False)
+    self.HT = Attribute(10, True)
 
     self.d = Character_data()
 
@@ -212,6 +191,10 @@ class Character:
  
   def attr_points(self):
     '''Returns the points used in attributes'''
+    print self.ST.points
+    print self.DX.points
+    print self.IQ.points
+    print self.HT.points
     return self.ST.points + self.HT.points + self.IQ.points + self.DX.points
 
   def advantage_points(self):
@@ -245,7 +228,7 @@ class Character:
     return total_points
 
   def total_points(self):
-    '''Returns the totol character points'''
+    '''Returns the total character points'''
     return self.attr_points() + self.advantage_points() + \
       self.disadvantage_points() + self.quirk_points() + self.skill_points()
 
@@ -557,7 +540,7 @@ class Character:
       if self.advantage_db.db[aid][AMAXL] != '1':
         atext.append('  %3s' % self.d.advantages[aid]['points'] + ' ' +
                      self.advantage_db.db[aid][ANAME] +
-	  	     ' (lvl %s)' % self.d.advantages[aid]['level'] + '\n')
+             ' (lvl %s)' % self.d.advantages[aid]['level'] + '\n')
       else:
         atext.append('  %3s' % self.d.advantages[aid]['points'] + ' ' +
                      self.advantage_db.db[aid][ANAME] + '\n')
